@@ -1,5 +1,4 @@
-import mongoose, { Document, ObjectId, Schema, Types } from "mongoose";
-import { genHash, genSalt } from "../utils/utils";
+import mongoose, { ObjectId, Schema, Types } from "mongoose";
 
 export interface IBlog {
 	_id: ObjectId;
@@ -12,7 +11,7 @@ export interface IBlogModel extends IBlog {}
 
 const BlogSchema: Schema = new Schema({
 	author: { type: Types.ObjectId, required: true },
-	created_at: { type: Date, default: new Date() },
+	created_at: { type: Schema.Types.Mixed, default: new Date() },
 	content: { type: String, required: true },
 });
 

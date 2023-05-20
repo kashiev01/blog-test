@@ -1,18 +1,7 @@
 import jwt, { Secret } from "jsonwebtoken";
-import { Request, Response, NextFunction } from "express";
-import { ObjectId } from "mongoose";
+import { Response, NextFunction } from "express";
+import { CustomRequest, JwtPayload } from "./interfaces/interfaces";
 
-export interface CustomRequest extends Request {
-	userId?: string;
-	content?: any;
-}
-
-interface JwtPayload {
-	userId: string;
-	email: string;
-	iat: number;
-	exp: number;
-}
 const verifyToken = (req: CustomRequest, res: Response, next: NextFunction) => {
 	const token = req.headers.authorization?.split(" ")[1];
 

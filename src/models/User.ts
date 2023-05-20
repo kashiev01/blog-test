@@ -5,16 +5,14 @@ export interface IUser {
 	_id: ObjectId;
 	email: string;
 	password: string;
-	first_name: string;
-	last_name: string;
+	full_name: string;
 }
 
 export interface IUserModel extends IUser {}
 
 const UserSchema: Schema = new Schema({
 	email: { type: String, required: true },
-	first_name: { type: String, required: true },
-	last_name: { type: String, required: true },
+	full_name: { type: String, required: true },
 	password: { type: String, required: false },
 });
 
